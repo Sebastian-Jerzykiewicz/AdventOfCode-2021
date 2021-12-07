@@ -22,7 +22,7 @@ def main():
     fuel = np.zeros(max_crab_pos + 1, dtype=int)
     for i in range(len(fuel)):
         for crab in crabs:
-            fuel[i] += (lambda x: x * (x / 2 + 0.5))(abs(crab - i))
+            fuel[i] += (lambda x: x * (x + 1) / 2)(abs(crab - i))
 
     result.append(min(fuel))
 
