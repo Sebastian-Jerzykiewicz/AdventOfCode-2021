@@ -1,11 +1,3 @@
-def is_opening(char):
-    return char in ("(", "[", "{", "<")
-
-
-def is_closing(char):
-    return char in (")", "]", "}", ">")
-
-
 def check_subsystem(subsystem):
     brackets = {
         ")": "(",
@@ -19,10 +11,10 @@ def check_subsystem(subsystem):
         is_corrupted = False
         stack = []
         for char in line:
-            if is_opening(char):
+            if char in ("(", "[", "{", "<"):
                 stack.append(char)
 
-            if is_closing(char):
+            if char in (")", "]", "}", ">"):
                 if len(stack) > 0:
                     if stack[-1] == brackets[char]:
                         stack.pop()
